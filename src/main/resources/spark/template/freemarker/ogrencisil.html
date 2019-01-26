@@ -1,0 +1,73 @@
+<!-- Freemarker template -->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>Ogrenci Sil</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" rel="stylesheet">
+    <!-- Optional theme -->
+    <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script crossorigin="anonymous" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+
+<body>
+
+<!-- Static navbar -->
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/ogrenciler">Ogrenci Yonetim Sistemi</a>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar">
+            <ul class="nav navbar-nav">
+                <li><a href="/ogrenciler">Ogrenci Listesi</a></li>
+                <li><a href="/ogrenciekle">Ogrenci Ekle</a></li>
+                <li class="active"><a href="/ogrencisil">Ogrenci Sil</a></li>
+                <li><a href="/dersekle">Ders Ekle</a></li>
+                <li><a href="/dersler">Ders Listesi</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+
+<div class="container">
+    <div class="jumbotron">
+        <h1>Ogrenci Sil</h1>
+        <form action="/ogrencisil" class="form-inline" method="POST">
+            <div class="form-group">
+                <label for="name">Ogrenci Numarasını girin</label>
+
+                <input class="form-control"
+                       id="numara"
+                       name="numara"
+                       type="text">
+
+            </div>
+
+            <input class="btn btn-default" type="submit" value="Sil"/>
+        </form>
+
+        <a href="/ogrenciler">Vazgec</a>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2017 Ileri Java Medipol</p>
+    </footer>
+
+</div>
+
+
+</body>
+</html>
