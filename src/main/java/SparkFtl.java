@@ -34,7 +34,7 @@ public class SparkFtl {
         ogrencilistesi.add(new Ogrenci("Ogrenci Uc", "On Lisans", "MYO", 3));
         derslistesi.add(new Ders("Bilişim Hukuku", 15, 12, 1235));
 
-        setPort(4567);
+        setPort(8080);
 
         FreeMarkerRoute ogrencilerGet = new FreeMarkerRoute("/ogrenciler") {
             public Object handle(Request req, Response resp) {
