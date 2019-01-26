@@ -16,7 +16,7 @@ public class LessonDto {
     private int lessonAkts;
     private int lessonId;
 
-    public LessonDto(String lessonName, int lessonCredit, int lessonAkts, int lessonId, List<StudentDto> lessonsStudents) {
+    public LessonDto(String lessonName, int lessonCredit, int lessonAkts, int lessonId) {
         this.lessonName = lessonName;
         this.lessonCredit = lessonCredit;
         this.lessonAkts = lessonAkts;
@@ -31,16 +31,16 @@ public class LessonDto {
         this.lessonName = lessonName;
     }
 
-    public int getLessonCredit() {
-        return lessonCredit;
+    public String getLessonCredit() {
+        return String.valueOf(this.lessonCredit);
     }
 
     public void setLessonCredit(int lessonCredit) {
         this.lessonCredit = lessonCredit;
     }
 
-    public int getLessonAkts() {
-        return lessonAkts;
+    public String getLessonAkts() {
+        return String.valueOf(this.lessonAkts);
     }
 
     public void setLessonAkts(int lessonAkts) {
