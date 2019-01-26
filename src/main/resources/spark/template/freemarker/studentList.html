@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>Dersler</title>
+    <title>studentList</title>
 
     <!-- Latest compiled and minified CSS -->
     <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -36,14 +36,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/ogrenciler">Ogrenci Yonetim Sistemi</a>
+            <a class="navbar-brand" href="/studentList">Ogrenci Yonetim Sistemi</a>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li><a href="/ogrenciler">Ogrenci Listesi</a></li>
-                <li><a href="/ogrenciekle">Ogrenci Ekle</a></li>
-                <li><a href="/dersekle">Ders Ekle</a></li>
-                <li class="active"><a href="/dersler">Ders Listesi</a></li>
+                <li class="active"><a href="/studentList">Ogrenci Listesi</a></li>
+                <li><a href="/studentAdd">Ogrenci Ekle</a></li>
+                <li><a href="/lessonAdd">Ders Ekle</a></li>
+                <li><a href="/lessonList">Ders Listesi</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -52,57 +52,106 @@
 
 <div class="container">
     <div class="jumbotron">
-        <form accept-charset="utf-8" action="/dersgoruntule" method="POST">
-            <center>
+        <center>
+            <form accept-charset="utf-8" action="/studentList" method="POST">
                 <table border="1">
 
-                    <h1>Ders Listesi</h1>
-
-
-                    <!-- http://freemarker.org/docs/ref_directive_list.html -->
-
+                    <h1>Ogrenci Sil</h1>
 
                     <tr>
                         <th>
                             <center>Seçim</center>
                         </th>
                         <th>
-                            <center>Ders ID</center>
+                            <center>Numara</center>
                         </th>
                         <th>
-                            <center>Ders Adı</center>
-                        </th>
-                        <th>
-                            <center>Ders Kredisi</center>
-                        </th>
-                        <th>
-                            <center>AKTS</center>
+                            <center>Ad Soyad</center>
                         </th>
                         <br>
 
                     </tr>
-                    <#list dersler as dersler>
+                    <#list studentList as student_list>
+
                     <tr>
 
 
-                        <td width="100"><input id="secilenDers" name="secilenDers" type="radio"
-                                               value="${dersler.dersId()}"></td>
+                        <td width="100">
+                            <center><input id="StudentDelete" name="StudentDelete" type="radio"
+                                           value="${student_list.studentNumber()}"></center>
+                        </td>
+                        <td width="200">
+                            <center>${student_list.studentNumber()}</center>
+                        </td>
+                        <td width="200">
+                            <center>${student_list.studentName()}</center>
+                        </td>
 
-                        <td width="200">${dersler.dersId()}</td>
-                        <td width="200">${dersler.getDersAdi()}</td>
-                        <td width="200">${dersler.getDersKredi()}</td>
-                        <td width="200">${dersler.getDersAKTS()}</td>
 
                     </tr>
                 </
                 #list>
-                </ul>
+
                 </table>
-            </center>
-            <br>
-            <a href="/dersekle"><input class="btn btn-default" value="Ders Ekle"/></a></a>
-            <input class="btn btn-default" type="submit" value="Ders Detayi"/>
-        </form>
+
+
+                <input class="btn btn-default" type="submit" value="Sil"/>
+
+            </form>
+
+        </center>
+    </div>
+
+
+    <div class="jumbotron">
+        <center>
+            <form accept-charset="utf-8" action="/studentDetail" method="POST">
+                <table border="1">
+
+                    <h1>Ogrenci Detaylandır</h1>
+
+                    <tr>
+                        <th>
+                            <center>Seçim</center>
+                        </th>
+                        <th>
+                            <center>Numara</center>
+                        </th>
+                        <th>
+                            <center>Ad Soyad</center>
+                        </th>
+                        <br>
+
+                    </tr>
+                    <#list studentList as student_list>
+
+                    <tr>
+
+
+                        <td width="100">
+                            <center><input id="Student_select_checkbox" name="Student_select_checkbox" type="radio"
+                                           value="${student_list.studentNumber()}"></center>
+                        </td>
+                        <td width="200">
+                            <center>${student_list.studentNumber()}</center>
+                        </td>
+                        <td width="200">
+                            <center>${student_list.studentName()}</center>
+                        </td>
+
+
+                    </tr>
+                </
+                #list>
+
+                </table>
+
+                <input class="btn btn-default" type="submit" value="Student_detail"/>
+
+
+            </form>
+
+        </center>
     </div>
 
 

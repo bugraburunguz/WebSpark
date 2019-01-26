@@ -40,7 +40,7 @@ public class SparkFtl {
             public Object handle(Request req, Response resp) {
                 Map<String, Object> attributes = new HashMap<>();
                 attributes.put("ogrenciler", ogrencilistesi);
-                return new ModelAndView(attributes, "ogrenciler.html"); // resources'daki html veya ftl
+                return new ModelAndView(attributes, "studentList.html"); // resources'daki html veya ftl
             }
         };
         get(ogrencilerGet);
@@ -75,7 +75,7 @@ public class SparkFtl {
             public Object handle(Request req, Response resp) {
                 Map<String, Object> attributes = new HashMap<>();
                 attributes.put("dersler", derslistesi);
-                return new ModelAndView(attributes, "dersler.html"); // resources'daki html veya ftl
+                return new ModelAndView(attributes, "lessonList.html"); // resources'daki html veya ftl
             }
         };
         get(derslerGet);
