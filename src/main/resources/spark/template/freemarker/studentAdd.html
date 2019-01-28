@@ -22,7 +22,6 @@
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-
 <body>
 
 <!-- Static navbar -->
@@ -59,7 +58,6 @@
                 </div>
                 <br/>
 
-
                 <div class="form-group">
                     <label for="name">Öğrencinin Soyadı</label>
                     <input class="form-control"
@@ -68,17 +66,17 @@
                            type="text">
                 </div>
                 <br/>
+
                 <div class="form-group">
                     <label for="name">Lisansı Nedir?</label>
                     <select class="form-control" id="studentDegree" name="studentDegree">
-                        <option value="nonDegree">Ön Lisans</option>
-                        <option value="degree">Lisans</option>
-                        <option value="masterDegree">Yüksek Lisans</option>
-
+                        <option name="Ön Lisans">Ön Lisans</option>
+                        <option name="Lisans">Lisans</option>
+                        <option name="Yüksek Lisans">Yüksek Lisans</option>
                     </select>
-
                 </div>
                 <br/>
+
                 <div class="form-group">
                     <label for="name">Bolum</label>
                     <input class="form-control"
@@ -87,6 +85,7 @@
                            type="text">
                 </div>
                 <br/>
+
                 <div class="form-group">
                     <label for="name">Numara</label>
                     <input class="form-control"
@@ -96,17 +95,16 @@
 
                 </div>
                 <br/>
+
                 <input class="btn btn-default" type="submit" value="Ekle"/>
                 <a href="/studentList"> <a href="/studentList"><input class="btn btn-default" value="vazgeç"/></a></a>
             </form>
         </table>
-
     </div>
 
     <footer class="footer">
         <p>&copy; Buğra Emin Bürüngüz</p>
     </footer>
-
 </div>
 </body>
 </html>

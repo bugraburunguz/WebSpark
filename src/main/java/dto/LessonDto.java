@@ -7,7 +7,7 @@ import java.util.List;
 //│ ───────────────────────────── │
 //│ BugraBurunguz@AndroidEdu.IO   │
 //│ ───────────────────────────── │
-//│ 26.01.2019 - 04:27             │
+//│ 26.01.2019 - 04:27            │
 //└────────────────────────────────
 public class LessonDto {
     public List<StudentDto> lessonsStudents;
@@ -54,5 +54,10 @@ public class LessonDto {
     public void setLessonId(int lessonId) {
         this.lessonId = lessonId;
     }
+
+    public String getLessonStringId() {
+        return String.valueOf(this.lessonId);
+    }
+
 }
 

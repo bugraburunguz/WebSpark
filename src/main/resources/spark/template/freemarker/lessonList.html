@@ -52,7 +52,7 @@
 
 <div class="container">
     <div class="jumbotron">
-        <form accept-charset="utf-8" action="/lessonList" method="POST">
+        <form accept-charset="utf-8" action="/lessonDetail" method="POST">
             <center>
                 <table border="1">
 
@@ -72,12 +72,6 @@
                         <th>
                             <center>Ders Adı</center>
                         </th>
-                        <th>
-                            <center>Ders Kredisi</center>
-                        </th>
-                        <th>
-                            <center>AKTS</center>
-                        </th>
                         <br>
 
                     </tr>
@@ -85,13 +79,10 @@
                     <tr>
 
 
-                        <td width="100"><input id="selectedLesson" name="selectedLesson" type="radio"
+                        <td width="100"><input id="lesson_select_radio" name="lesson_select_radio" type="radio"
                                                value="${lessonList.getLessonId()}"></td>
-
-                        <td width="200">${lessonList.getLessonId()}</td>
+                        <td width="200">${lessonList.getLessonStringId()}</td>
                         <td width="200">${lessonList.getLessonName()}</td>
-                        <td width="200">${lessonList.getLessonCredit()}</td>
-                        <td width="200">${lessonList.getLessonAkts()}</td>
 
                     </tr>
                 </
@@ -100,8 +91,8 @@
                 </table>
             </center>
             <br>
-            <a href="/lessonAdd"><input class="btn btn-default" value="lessonAdd"/></a></a>
-            <input class="btn btn-default" type="submit" value="lessonDetail"/>
+            <a href="/lessonAdd"><input class="btn btn-default" value="Ekle"/></a>
+            <input class="btn btn-default" type="submit" value="Detay"/>
         </form>
     </div>
 

@@ -1,11 +1,10 @@
-<!-- Freemarker template -->
+
 <html>
 <head>
     <meta charset="utf-8">
     <meta content="IE=edge" http-equiv="X-UA-Compatible">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
     <title>Dersler</title>
 
     <!-- Latest compiled and minified CSS -->
@@ -36,29 +35,24 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/ogrenciler">Ogrenci Yonetim Sistemi</a>
+            <a class="navbar-brand" href="/studentList">Ogrenci Yonetim Sistemi</a>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li><a href="/ogrenciler">Ogrenci Listesi</a></li>
-                <li><a href="/ogrenciekle">Ogrenci Ekle</a></li>
-                <li><a href="/dersekle">Ders Ekle</a></li>
-                <li><a href="/dersler">Ders Listesi</a></li>
+                <li><a href="/studentList">Ogrenci Listesi</a></li>
+                <li><a href="/studentAdd">Ogrenci Ekle</a></li>
+                <li><a href="/lessonAdd">Ders Ekle</a></li>
+                <li><a href="/lessonList">Ders Listesi</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-
 
 <div class="container">
     <div class="jumbotron">
         <center>
             <table border="1">
                 <h1>Ders Listesi</h1>
-
-
-                <!-- http://freemarker.org/docs/ref_directive_list.html -->
-
 
                 <tr>
                     <th>
@@ -74,32 +68,25 @@
                         <center>AKTS</center>
                     </th>
                     <br>
-
                 </tr>
 
                 <tr>
-
-
-                    <td width="200">${dersdetay.dersId()}</td>
-                    <td width="200">${dersdetay.getDersAdi()}</td>
-                    <td width="200">${dersdetay.getDersKredi()}</td>
-                    <td width="200">${dersdetay.getDersAKTS()}</td>
+                    <td width="200">${lessonList.getLessonStringId()}</td>
+                    <td width="200">${lessonList.getLessonName()}</td>
+                    <td width="200">${lessonList.getLessonCredit()}</td>
+                    <td width="200">${lessonList.getLessonAkts()}</td>
                 </tr>
-
-
             </table>
         </center>
         <br>
 
-        <a href="/dersler"><input class="btn btn-default" value="Geri"/></a></a>
+        <a href="/lessonList"><input class="btn btn-default" value="Geri"/></a></a>
 
     </div>
-
 
     <footer class="footer">
         <p>&copy; 2017 Ileri Java Medipol</p>
     </footer>
-
 </div>
 </body>
 </html>

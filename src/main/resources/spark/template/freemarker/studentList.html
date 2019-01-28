@@ -71,20 +71,20 @@
                         <br>
 
                     </tr>
-                    <#list studentList as student_list>
+                    <#list students as student_list>
 
                     <tr>
 
 
                         <td width="100">
-                            <center><input id="StudentDelete" name="StudentDelete" type="radio"
-                                           value="${student_list.studentNumber()}"></center>
+                            <center><input id="deletedStudent" name="deletedStudent" type="radio"
+                                           value="${student_list.getStudentNumber()}"></center>
                         </td>
                         <td width="200">
-                            <center>${student_list.studentNumber()}</center>
+                            <center>${student_list.getStudentNumber()}</center>
                         </td>
                         <td width="200">
-                            <center>${student_list.studentName()}</center>
+                            <center>${student_list.getStudentName()}</center>
                         </td>
 
 
@@ -123,20 +123,19 @@
                         <br>
 
                     </tr>
-                    <#list studentList as student_list>
+                    <#list students as student_list>
 
                     <tr>
 
-
                         <td width="100">
-                            <center><input id="Student_select_checkbox" name="Student_select_checkbox" type="radio"
-                                           value="${student_list.studentNumber()}"></center>
+                            <center><input id="student_select_checkbox" name="student_select_checkbox" type="radio"
+                                           value="${student_list.getStudentNumber()}"></center>
                         </td>
                         <td width="200">
-                            <center>${student_list.studentNumber()}</center>
+                            <center>${student_list.getStudentNumber()}</center>
                         </td>
                         <td width="200">
-                            <center>${student_list.studentName()}</center>
+                            <center>${student_list.getStudentName()}</center>
                         </td>
 
 
@@ -146,7 +145,7 @@
 
                 </table>
 
-                <input class="btn btn-default" type="submit" value="Student_detail"/>
+                <input class="btn btn-default" type="submit" value="Detay"/>
 
 
             </form>

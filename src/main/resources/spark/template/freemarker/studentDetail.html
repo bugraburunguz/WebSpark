@@ -36,29 +36,25 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/ogrenciler">Ogrenci Yonetim Sistemi</a>
+            <a class="navbar-brand" href="/studentList">Ogrenci Yonetim Sistemi</a>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li><a href="/ogrenciler">Ogrenci Listesi</a></li>
-                <li><a href="/ogrenciekle">Ogrenci Ekle</a></li>
-                <li><a href="/dersekle">Ders Ekle</a></li>
-                <li><a href="/dersler">Ders Listesi</a></li>
+                <li><a href="/studentList">Ogrenci Listesi</a></li>
+                <li><a href="/studentAdd">Ogrenci Ekle</a></li>
+                <li><a href="/lessonAdd">Ders Ekle</a></li>
+                <li><a href="/lessonList">Ders Listesi</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-
 
 <div class="container">
     <div class="jumbotron">
         <center>
             <table border="1">
                 <h1>Ogrenci Detayı</h1>
-
-
                 <!-- http://freemarker.org/docs/ref_directive_list.html -->
-
 
                 <tr>
                     <th>
@@ -68,37 +64,33 @@
                         <center>Ogrenci Adı</center>
                     </th>
                     <th>
-                        <center>Ogrenci Tipi</center>
+                        <center>Ogrenci Soyadı</center>
                     </th>
                     <th>
                         <center>Ogrenci Bolumu</center>
                     </th>
+                    <th>
+                        <center>Ogrenci Lisans Durumu</center>
+                    </th>
                     <br>
-
                 </tr>
 
-                <tr>
-
-                    <td width="200">${ogrencidetay.ogrenciNumara()}</td>
-                    <td width="200">${ogrencidetay.ogrenciIsim()}</td>
-                    <td width="200">${ogrencidetay.ogrenciTipi()}</td>
-                    <td width="200">${ogrencidetay.ogrenciBolum()}</td>
+                <td width="200">${students.getStudentNumber()}</td>
+                <td width="200">${students.getStudentName()}</td>
+                <td width="200">${students.getStudentSurname()}</td>
+                <td width="200">${students.getStudentDepartment()}</td>
+                <td width="200">${students.getDegreeType()}</td>
 
                 </tr>
-
-
             </table>
         </center>
         <br>
-        <a href="/ogrenciler"><input class="btn btn-default" value="Geri"/></a></a>
-
+        <a href="/studentList"><input class="btn btn-default" value="Geri"/></a></a>
     </div>
-
 
     <footer class="footer">
         <p>&copy; 2017 Ileri Java Medipol</p>
     </footer>
-
 </div>
 </body>
 </html>

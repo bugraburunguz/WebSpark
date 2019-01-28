@@ -28,14 +28,14 @@
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/ogrenciler">Ogrenci Yonetim Sistemi</a>
+            <a class="navbar-brand" href="/studentList">Ogrenci Yonetim Sistemi</a>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li><a href="/ogrenciler">Ogrenci Listesi</a></li>
-                <li><a href="/ogrenciekle">Ogrenci Ekle</a></li>
-                <li class="active"><a href="/dersekle">Ders Ekle</a></li>
-                <li><a href="/dersler">Ders Listesi</a></li>
+                <li><a href="/studentList">Ogrenci Listesi</a></li>
+                <li><a href="/studentAdd">Ogrenci Ekle</a></li>
+                <li class="active"><a href="/lessonAdd">Ders Ekle</a></li>
+                <li><a href="/lessonList">Ders Listesi</a></li>
 
             </ul>
         </div><!--/.nav-collapse -->
@@ -47,37 +47,37 @@
     <div class="jumbotron">
         <table>
             <h1>Ders Ekle</h1>
-            <form action="/dersekle" class="form-inline" method="POST">
+            <form action="/lessonAdd" class="form-inline" method="POST">
                 <div class="form-group">
                     <label for="name">Ders Numarası</label>
                     <input class="form-control"
-                           id="dersId"
-                           name="dersId"
+                           id="lessonId"
+                           name="lessonId"
                            type="text">
                 </div>
                 <div class="form-group">
                     <label for="name">Ders Adı</label>
                     <input class="form-control"
-                           id="dersAdi"
-                           name="dersAdi"
+                           id="lessonName"
+                           name="lessonName"
                            type="text">
                 </div>
                 <div class="form-group">
                     <label for="name">Ders Kredisi</label>
                     <input class="form-control"
-                           id="dersKredi"
-                           name="dersKredi"
+                           id="lessonCredit"
+                           name="lessonCredit"
                            type="text">
                 </div>
                 <div class="form-group">
                     <label for="name">AKTS</label>
                     <input class="form-control"
-                           id="dersAKTS"
-                           name="dersAKTS"
+                           id="lessonAkts"
+                           name="lessonAkts"
                            type="text">
                 </div>
                 <input class="btn btn-default" type="submit" value="Ekle"/>
-                <a href="/ogrenciler"> <a href="/ogrenciler"><input class="btn btn-default" value="vazgeç"/></a></a>
+                <a href="/studentList"><input class="btn btn-default" value="vazgeç"/></a>
             </form>
         </table>
 

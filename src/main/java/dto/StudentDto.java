@@ -27,13 +27,6 @@ public class StudentDto {
         this.studentNumber = studentNumber;
     }
 
-    public String getStudentName() {
-        return studentName;
-    }
-
-    public void setStudentName(String studentName) {
-        this.studentName = studentName;
-    }
 
     public String getStudentSurname() {
         return studentSurname;
@@ -41,6 +34,14 @@ public class StudentDto {
 
     public void setStudentSurname(String studentSurname) {
         this.studentSurname = studentSurname;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
     public String getStudentDepartment() {

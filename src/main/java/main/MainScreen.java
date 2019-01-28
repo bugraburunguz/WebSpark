@@ -25,7 +25,9 @@ import static spark.Spark.*;
 //└────────────────────────────────
 public class MainScreen {
 
-    // TODO: 2019-01-28 ÖĞRENCİYE DERS EKLEME VE DERSE ÖĞRENCİ EKLEME YAPILACAK
+    // TODO: 2019-01-28
+    //  ÖĞRENCİYE DERS EKLEME, DERSE ÖĞRENCİ EKLEME YAPILACAK, LİSANS DURUMU BİR ENUMDA TUTULACAK...
+
 
     public static void main(String[] args) {
 
@@ -39,13 +41,13 @@ public class MainScreen {
         studentDtoList.add(new StudentDto("Buğra Emin",
                 "Bürüngüz",
                 "Software Engeneering",
-                "Degree",
+                "Lisans",
                 "B1806090900"));
 
         studentDtoList.add(new StudentDto("Mehmet",
                 "Güngörmüş",
                 "Computer Engeneering",
-                "Degree",
+                "Lisans",
                 "B1805070800"));
 
         lessonDtoList.add(new LessonDto("Proje Yönetimi",
@@ -114,13 +116,12 @@ public class MainScreen {
                 String studentName = req.queryParams("name");
                 String studentsurname = req.queryParams("surname");
                 String department = req.queryParams("department");
-                String degree = req.queryParams("degree");
+                String degree = req.queryParams("studentDegree");
                 String studentNumber = req.queryParams("number");
 
                 studentDtoList.add(new StudentDto(studentName, studentsurname, department, degree, studentNumber));
 
                 resp.redirect("/studentList");
-
                 return null;
             }
         };
@@ -145,43 +146,43 @@ public class MainScreen {
         };
         post(studentDeletePost);
 
-        FreeMarkerRoute lessonDetailPost = new FreeMarkerRoute("/lessonDetail") {
+        FreeMarkerRoute selectedLessonDetailPost = new FreeMarkerRoute("/lessonDetail") {
             public Object handle(Request req, Response resp) {
                 int lessonIndex = -1;
-                int selectedLesson = Integer.parseInt(req.queryParams("selectedLesson"));
+                int selectedLesson = Integer.parseInt(req.queryParams("lesson_select_radio"));
                 for (int i = 0; i < lessonDtoList.size(); i++) {
-                    LessonDto lessonList = lessonDtoList.get(i);
-                    if (selectedLesson == lessonList.getLessonId()) {
+                    LessonDto lesson = lessonDtoList.get(i);
+                    if (selectedLesson == lesson.getLessonId()) {
                         lessonIndex = i;
                         break;
                     }
                 }
                 LessonDto lessonDetail = lessonDtoList.get(lessonIndex);
                 Map<String, Object> attributes = new HashMap<>();
-                attributes.put("lessonDetail", lessonDetail);
+                attributes.put("lessonList", lessonDetail);
                 return new ModelAndView(attributes, "lessonDetail.html");
             }
         };
-        post(lessonDetailPost);
+        post(selectedLessonDetailPost);
 
-        FreeMarkerRoute selectedStudentsDetail = new FreeMarkerRoute("/studentDetail") {
+        FreeMarkerRoute selectedStudentsDetailPost = new FreeMarkerRoute("/studentDetail") {
             public Object handle(Request req, Response resp) {
                 int studentIndex = -1;
-                String secilenOgrenci = req.queryParams("studentCheckbox");
+                String selectedStudent = req.queryParams("student_select_checkbox");
                 for (int i = 0; i < studentDtoList.size(); i++) {
                     StudentDto student = studentDtoList.get(i);
-                    if (secilenOgrenci.equals(student.getStudentNumber())) {
+                    if (selectedStudent.equals(student.getStudentNumber())) {
                         studentIndex = i;
                         break;
                     }
                 }
                 StudentDto studentDetail = studentDtoList.get(studentIndex);
                 Map<String, Object> attributes = new HashMap<>();
-                attributes.put("studentDetail", studentDetail);
+                attributes.put("students", studentDetail);
                 return new ModelAndView(attributes, "studentDetail.html");
             }
         };
-        post(selectedStudentsDetail);
+        post(selectedStudentsDetailPost);
 
 
         FreeMarkerRoute lessonAddPost = new FreeMarkerRoute("/lessonAdd") {
