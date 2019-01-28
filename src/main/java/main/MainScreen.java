@@ -25,6 +25,8 @@ import static spark.Spark.*;
 //└────────────────────────────────
 public class MainScreen {
 
+    // TODO: 2019-01-28 ÖĞRENCİYE DERS EKLEME VE DERSE ÖĞRENCİ EKLEME YAPILACAK
+
     public static void main(String[] args) {
 
         Logger logger = LoggerFactory.getLogger(MainScreen.class);
@@ -108,20 +110,23 @@ public class MainScreen {
 
         FreeMarkerRoute studentAddPost = new FreeMarkerRoute("/studentAdd") {
             public Object handle(Request req, Response resp) {
+
                 String studentName = req.queryParams("name");
                 String studentsurname = req.queryParams("surname");
                 String department = req.queryParams("department");
                 String degree = req.queryParams("degree");
                 String studentNumber = req.queryParams("number");
+
                 studentDtoList.add(new StudentDto(studentName, studentsurname, department, degree, studentNumber));
 
                 resp.redirect("/studentList");
+
                 return null;
             }
         };
         post(studentAddPost);
 
-        FreeMarkerRoute ogrencisilPost = new FreeMarkerRoute("/studentList") {
+        FreeMarkerRoute studentDeletePost = new FreeMarkerRoute("/studentList") {
             public Object handle(Request req, Response resp) {
 
                 String selectedStudent = req.queryParams("deletedStudent");
@@ -131,114 +136,74 @@ public class MainScreen {
                         studentDtoList.remove(i);
                         break;
                     } else {
-                        //DOldurulacak
+                        resp.redirect("/studentList");
                     }
                 }
-
                 resp.redirect("/studentList");
                 return null;
             }
         };
-        post(ogrencisilPost);
+        post(studentDeletePost);
 
-        FreeMarkerRoute dersDetayi = new FreeMarkerRoute("/lessonDetail") {
+        FreeMarkerRoute lessonDetailPost = new FreeMarkerRoute("/lessonDetail") {
             public Object handle(Request req, Response resp) {
-                int dersIndeksi = -1;
-                int secilenDers = Integer.parseInt(req.queryParams("selectedLesson"));
+                int lessonIndex = -1;
+                int selectedLesson = Integer.parseInt(req.queryParams("selectedLesson"));
                 for (int i = 0; i < lessonDtoList.size(); i++) {
                     LessonDto lessonList = lessonDtoList.get(i);
-                    if (secilenDers == lessonList.getLessonId()) {
-                        dersIndeksi = i;
+                    if (selectedLesson == lessonList.getLessonId()) {
+                        lessonIndex = i;
                         break;
                     }
                 }
-                LessonDto lessonDetail = lessonDtoList.get(dersIndeksi);
+                LessonDto lessonDetail = lessonDtoList.get(lessonIndex);
                 Map<String, Object> attributes = new HashMap<>();
                 attributes.put("lessonDetail", lessonDetail);
                 return new ModelAndView(attributes, "lessonDetail.html");
-
             }
         };
-        post(dersDetayi);
+        post(lessonDetailPost);
 
-        FreeMarkerRoute secilenOgrencininDetayi = new FreeMarkerRoute("/studentDetail") {
+        FreeMarkerRoute selectedStudentsDetail = new FreeMarkerRoute("/studentDetail") {
             public Object handle(Request req, Response resp) {
-                int ogrenciIndeksi = -1;
+                int studentIndex = -1;
                 String secilenOgrenci = req.queryParams("studentCheckbox");
                 for (int i = 0; i < studentDtoList.size(); i++) {
                     StudentDto student = studentDtoList.get(i);
                     if (secilenOgrenci.equals(student.getStudentNumber())) {
-                        ogrenciIndeksi = i;
+                        studentIndex = i;
                         break;
                     }
                 }
-                StudentDto studentDetail = studentDtoList.get(ogrenciIndeksi);
+                StudentDto studentDetail = studentDtoList.get(studentIndex);
                 Map<String, Object> attributes = new HashMap<>();
                 attributes.put("studentDetail", studentDetail);
                 return new ModelAndView(attributes, "studentDetail.html");
-
             }
         };
+        post(selectedStudentsDetail);
 
-        post(secilenOgrencininDetayi);
 
-        FreeMarkerRoute ogrenciyeDersEkleme = new FreeMarkerRoute("/studentDetail") {
-            public Object handle(Request req, Response resp) {
-                String ogrenciNum = req.queryParams("studentNumber");
-                int dersler = Integer.parseInt(req.queryParams("selectLesson"));
-                int ogrenciIndeksi = -1;
-                for (int i = 0; i < studentDtoList.size(); i++) {
-                    StudentDto student = studentDtoList.get(i);
-                    if (ogrenciNum.equals(student.getStudentNumber())) {
-                        ogrenciIndeksi = i;
-
-                        break;
-                    }
-                }
-                int dersinIndeksi = -1;
-                for (int i = 0; i < lessonDtoList.size(); i++) {
-                    LessonDto lesson = lessonDtoList.get(i);
-                    if (dersler == lesson.getLessonId()) {
-                        dersinIndeksi = i;
-                        break;
-                    }
-                }
-                StudentDto selectedStudent = studentDtoList.get(ogrenciIndeksi);
-                LessonDto selectedLesson = lessonDtoList.get(dersinIndeksi);
-
-            /*
-            derse öğrenci öğrenciye ders ekleme kısmı
-            selectedStudent.studentsLessons().add(selectedLesson);
-            selectedLesson.getDersinOgrencileri().add(selectedStudent);
-
-            */
-                return null;
-
-            }
-        };
-
-        post(ogrenciyeDersEkleme);
-
-        FreeMarkerRoute lessonAddPost = new FreeMarkerRoute("/dersekle") {
+        FreeMarkerRoute lessonAddPost = new FreeMarkerRoute("/lessonAdd") {
             public Object handle(Request req, Response resp) {
 
-                String dersAdi = req.queryParams("dersAdi");
-                int dersKredi = Integer.parseInt(req.queryParams("dersKredi"));
-                int dersAKTS = Integer.parseInt(req.queryParams("dersAKTS"));
-                int dersId = Integer.parseInt(req.queryParams("dersId"));
+                String lessonName = req.queryParams("lessonName");
+                int lessonCredit = Integer.parseInt(req.queryParams("lessonCredit"));
+                int lessonAkts = Integer.parseInt(req.queryParams("lessonAkts"));
+                int lessonId = Integer.parseInt(req.queryParams("lessonId"));
 
 
                 for (int i = 0; i < lessonDtoList.size(); i++) {
                     LessonDto dersler = lessonDtoList.get(i);
-                    if (dersId == dersler.getLessonId()) {
+                    if (lessonId == dersler.getLessonId()) {
                         lessonDtoList.remove(i);
-                        lessonDtoList.add(new LessonDto(dersAdi, dersKredi, dersAKTS, dersId));
+                        lessonDtoList.add(new LessonDto(lessonName, lessonCredit, lessonAkts, lessonId));
                         break;
                     } else {
-                        lessonDtoList.add(new LessonDto(dersAdi, dersKredi, dersAKTS, dersId));
+                        lessonDtoList.add(new LessonDto(lessonName, lessonCredit, lessonAkts, lessonId));
                     }
                 }
-                resp.redirect("/dersler");
+                resp.redirect("/lessonList");
                 return null;
             }
         };
