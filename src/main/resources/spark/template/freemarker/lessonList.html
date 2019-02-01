@@ -74,15 +74,13 @@
                     <#list lessonList as lessonList>
                     <tr>
 
-
                         <td width="100"><input id="lesson_select_radio" name="lesson_select_radio" type="radio"
                                                value="${lessonList.getLessonId()}"></td>
-                        <td width="200">${lessonList.getLessonStringId()}</td>
+                        <td width="200">${lessonList.getLessonId()}</td>
                         <td width="200">${lessonList.getLessonName()}</td>
 
                     </tr>
-                </
-                #list>
+                </#list>
                 </table>
             </center>
             <br>
