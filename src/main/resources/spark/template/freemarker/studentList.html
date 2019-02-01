@@ -49,7 +49,6 @@
     </div>
 </nav>
 
-
 <div class="container">
     <div class="jumbotron">
         <center>
@@ -72,10 +71,7 @@
 
                     </tr>
                     <#list students as student_list>
-
                     <tr>
-
-
                         <td width="100">
                             <center><input id="deletedStudent" name="deletedStudent" type="radio"
                                            value="${student_list.getStudentNumber()}"></center>
@@ -86,22 +82,16 @@
                         <td width="200">
                             <center>${student_list.getStudentName()}</center>
                         </td>
-
-
                     </tr>
                 </
                 #list>
-
                 </table>
-
 
                 <input class="btn btn-default" type="submit" value="Sil"/>
 
             </form>
-
         </center>
     </div>
-
 
     <div class="jumbotron">
         <center>
@@ -121,10 +111,9 @@
                             <center>Ad Soyad</center>
                         </th>
                         <br>
-
                     </tr>
-                    <#list students as student_list>
 
+                    <#list students as student_list>
                     <tr>
 
                         <td width="100">
@@ -137,19 +126,14 @@
                         <td width="200">
                             <center>${student_list.getStudentName()}</center>
                         </td>
-
-
                     </tr>
                 </
                 #list>
-
                 </table>
 
                 <input class="btn btn-default" type="submit" value="Detay"/>
 
-
             </form>
-
         </center>
     </div>
 

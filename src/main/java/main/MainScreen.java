@@ -30,6 +30,7 @@ public class MainScreen {
     //  ÖĞRENCİ VE DERSE UPDATE SİSTEMİ GETİRİLECEK
     //  VERİ TABANI EKLENECEK MUHTEMELEN FIREBASE
     //  KOD DÜZENLENECEK DAHA KISA VE DAHA GÜZEL YAPILABİLİR Mİ BAKILACAK
+    //  Ders silme eklenecek
 
     public static void main(String[] args) {
 

@@ -49,7 +49,6 @@
     </div>
 </nav>
 
-
 <div class="container">
     <div class="jumbotron">
         <form accept-charset="utf-8" action="/lessonDetail" method="POST">
@@ -58,10 +57,7 @@
 
                     <h1>Ders Listesi</h1>
 
-
                     <!-- http://freemarker.org/docs/ref_directive_list.html -->
-
-
                     <tr>
                         <th>
                             <center>Seçim</center>
@@ -73,8 +69,8 @@
                             <center>Ders Adı</center>
                         </th>
                         <br>
-
                     </tr>
+
                     <#list lessonList as lessonList>
                     <tr>
 
@@ -87,7 +83,6 @@
                     </tr>
                 </
                 #list>
-                </ul>
                 </table>
             </center>
             <br>
@@ -96,11 +91,9 @@
         </form>
     </div>
 
-
     <footer class="footer">
         <p>&copy; 2017 Ileri Java Medipol</p>
     </footer>
-
 </div>
 </body>
 </html>
