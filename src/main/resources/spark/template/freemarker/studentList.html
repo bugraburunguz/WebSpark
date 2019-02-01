@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>Ogrenciler</title>
+    <title>studentList</title>
 
     <!-- Latest compiled and minified CSS -->
     <link crossorigin="anonymous" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -36,24 +36,23 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/ogrenciler">Ogrenci Yonetim Sistemi</a>
+            <a class="navbar-brand" href="/studentList">Ogrenci Yonetim Sistemi</a>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="/ogrenciler">Ogrenci Listesi</a></li>
-                <li><a href="/ogrenciekle">Ogrenci Ekle</a></li>
-                <li><a href="/dersekle">Ders Ekle</a></li>
-                <li><a href="/dersler">Ders Listesi</a></li>
+                <li class="active"><a href="/studentList">Ogrenci Listesi</a></li>
+                <li><a href="/studentAdd">Ogrenci Ekle</a></li>
+                <li><a href="/lessonAdd">Ders Ekle</a></li>
+                <li><a href="/lessonList">Ders Listesi</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 
-
 <div class="container">
     <div class="jumbotron">
         <center>
-            <form accept-charset="utf-8" action="/ogrenciler" method="POST">
+            <form accept-charset="utf-8" action="/studentList" method="POST">
                 <table border="1">
 
                     <h1>Ogrenci Sil</h1>
@@ -71,41 +70,31 @@
                         <br>
 
                     </tr>
-                    <#list ogrenciler as ogrenci>
-
+                    <#list students as student_list>
                     <tr>
-
-
                         <td width="100">
-                            <center><input id="OgrenciSildirme" name="OgrenciSildirme" type="radio"
-                                           value="${ogrenci.ogrenciNumara()}"></center>
+                            <center><input id="deletedStudent" name="deletedStudent" type="radio"
+                                           value="${student_list.getStudentNumber()}"></center>
                         </td>
                         <td width="200">
-                            <center>${ogrenci.ogrenciNumara()}</center>
+                            <center>${student_list.getStudentNumber()}</center>
                         </td>
                         <td width="200">
-                            <center>${ogrenci.ogrenciIsim()}</center>
+                            <center>${student_list.getStudentName()}</center>
                         </td>
-
-
                     </tr>
-                </
-                #list>
-
+                </#list>
                 </table>
-
 
                 <input class="btn btn-default" type="submit" value="Sil"/>
 
             </form>
-
         </center>
     </div>
 
-
     <div class="jumbotron">
         <center>
-            <form accept-charset="utf-8" action="/ogrencigoruntule" method="POST">
+            <form accept-charset="utf-8" action="/studentDetail" method="POST">
                 <table border="1">
 
                     <h1>Ogrenci Detaylandır</h1>
@@ -121,39 +110,30 @@
                             <center>Ad Soyad</center>
                         </th>
                         <br>
-
                     </tr>
-                    <#list ogrenciler as ogrenci>
 
+                    <#list students as student_list>
                     <tr>
 
-
                         <td width="100">
-                            <center><input id="OgrenciCheckbox" name="OgrenciCheckbox" type="radio"
-                                           value="${ogrenci.ogrenciNumara()}"></center>
+                            <center><input id="student_select_checkbox" name="student_select_checkbox" type="radio"
+                                           value="${student_list.getStudentNumber()}"></center>
                         </td>
                         <td width="200">
-                            <center>${ogrenci.ogrenciNumara()}</center>
+                            <center>${student_list.getStudentNumber()}</center>
                         </td>
                         <td width="200">
-                            <center>${ogrenci.ogrenciIsim()}</center>
+                            <center>${student_list.getStudentName()}</center>
                         </td>
-
-
                     </tr>
-                </
-                #list>
-
+                </#list>
                 </table>
 
-                <input class="btn btn-default" type="submit" value="Oğrenci Detayı"/>
-
+                <input class="btn btn-default" type="submit" value="Detay"/>
 
             </form>
-
         </center>
     </div>
-
 
     <footer class="footer">
         <p>&copy; 2017 Ileri Java Medipol</p>

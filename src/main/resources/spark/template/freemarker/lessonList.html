@@ -36,69 +36,62 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/ogrenciler">Ogrenci Yonetim Sistemi</a>
+            <a class="navbar-brand" href="/studentList">Ogrenci Yonetim Sistemi</a>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li><a href="/ogrenciler">Ogrenci Listesi</a></li>
-                <li><a href="/ogrenciekle">Ogrenci Ekle</a></li>
-                <li><a href="/dersekle">Ders Ekle</a></li>
-                <li><a href="/dersler">Ders Listesi</a></li>
+                <li><a href="/studentList">Ogrenci Listesi</a></li>
+                <li><a href="/studentAdd">Ogrenci Ekle</a></li>
+                <li><a href="/lessonAdd">Ders Ekle</a></li>
+                <li class="active"><a href="/lessonList">Ders Listesi</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
 </nav>
 
-
 <div class="container">
     <div class="jumbotron">
-        <center>
-            <table border="1">
-                <h1>Ogrenci Detayı</h1>
+        <form accept-charset="utf-8" action="/lessonDetail" method="POST">
+            <center>
+                <table border="1">
 
+                    <h1>Ders Listesi</h1>
 
-                <!-- http://freemarker.org/docs/ref_directive_list.html -->
+                    <!-- http://freemarker.org/docs/ref_directive_list.html -->
+                    <tr>
+                        <th>
+                            <center>Seçim</center>
+                        </th>
+                        <th>
+                            <center>Ders ID</center>
+                        </th>
+                        <th>
+                            <center>Ders Adı</center>
+                        </th>
+                        <br>
+                    </tr>
 
+                    <#list lessonList as lessonList>
+                    <tr>
 
-                <tr>
-                    <th>
-                        <center>Ogrenci Numarası</center>
-                    </th>
-                    <th>
-                        <center>Ogrenci Adı</center>
-                    </th>
-                    <th>
-                        <center>Ogrenci Tipi</center>
-                    </th>
-                    <th>
-                        <center>Ogrenci Bolumu</center>
-                    </th>
-                    <br>
+                        <td width="100"><input id="lesson_select_radio" name="lesson_select_radio" type="radio"
+                                               value="${lessonList.getLessonId()}"></td>
+                        <td width="200">${lessonList.getLessonId()}</td>
+                        <td width="200">${lessonList.getLessonName()}</td>
 
-                </tr>
-
-                <tr>
-
-                    <td width="200">${ogrencidetay.ogrenciNumara()}</td>
-                    <td width="200">${ogrencidetay.ogrenciIsim()}</td>
-                    <td width="200">${ogrencidetay.ogrenciTipi()}</td>
-                    <td width="200">${ogrencidetay.ogrenciBolum()}</td>
-
-                </tr>
-
-
-            </table>
-        </center>
-        <br>
-        <a href="/ogrenciler"><input class="btn btn-default" value="Geri"/></a></a>
-
+                    </tr>
+                </#list>
+                </table>
+            </center>
+            <br>
+            <a href="/lessonAdd"><input class="btn btn-default" value="Ekle"/></a>
+            <input class="btn btn-default" type="submit" value="Detay"/>
+        </form>
     </div>
-
 
     <footer class="footer">
         <p>&copy; 2017 Ileri Java Medipol</p>
     </footer>
-
 </div>
 </body>
 </html>

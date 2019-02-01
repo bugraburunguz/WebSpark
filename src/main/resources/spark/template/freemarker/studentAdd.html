@@ -22,21 +22,20 @@
             src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
-
 <body>
 
 <!-- Static navbar -->
 <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
         <div class="navbar-header">
-            <a class="navbar-brand" href="/ogrenciler">Ogrenci Yonetim Sistemi</a>
+            <a class="navbar-brand" href="/studentList">Ogrenci Yonetim Sistemi</a>
         </div>
         <div class="navbar-collapse collapse" id="navbar">
             <ul class="nav navbar-nav">
-                <li><a href="/ogrenciler">Ogrenci Listesi</a></li>
-                <li class="active"><a href="/ogrenciekle">Ogrenci Ekle</a></li>
-                <li><a href="/dersekle">Ders Ekle</a></li>
-                <li><a href="/dersler">Ders Listesi</a></li>
+                <li><a href="/studentList">Ogrenci Listesi</a></li>
+                <li class="active"><a href="/studentAdd">Ogrenci Ekle</a></li>
+                <li><a href="/lessonAdd">Ders Ekle</a></li>
+                <li><a href="/lessonList">Ders Listesi</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
@@ -46,59 +45,66 @@
     <div class="jumbotron">
 
         <table>
-            <form action="/ogrenciekle" class="form-inline" method="POST">
+            <form action="/studentAdd" class="form-inline" method="POST">
                 <h1>Ogrenci Ekle</h1>
 
 
                 <div class="form-group">
-                    <label for="name">Ad Soyad</label>
+                    <label for="name">Öğrencinin Adı</label>
                     <input class="form-control"
-                           id="adSoyad"
-                           name="adSoyad"
+                           id="name"
+                           name="name"
                            type="text">
                 </div>
                 <br/>
-                <div class="form-group">
-                    <label for="name">Ogrenci Tipi</label>
-                    <select class="form-control" id="ogrenciTipi" name="ogrenciTipi">
-                        <option value="Lisans">Lisans</option>
-                        <option value="YuksekLisans">Yüksek Lisans</option>
-                        <option value="OnLisans">Ön Lisans</option>
-                    </select>
 
+                <div class="form-group">
+                    <label for="name">Öğrencinin Soyadı</label>
+                    <input class="form-control"
+                           id="surname"
+                           name="surname"
+                           type="text">
                 </div>
                 <br/>
+
+                <div class="form-group">
+                    <label for="name">Lisansı Nedir?</label>
+                    <select class="form-control" id="studentDegree" name="studentDegree">
+                        <option name="Ön Lisans">Ön Lisans</option>
+                        <option name="Lisans">Lisans</option>
+                        <option name="Yüksek Lisans">Yüksek Lisans</option>
+                    </select>
+                </div>
+                <br/>
+
                 <div class="form-group">
                     <label for="name">Bolum</label>
                     <input class="form-control"
-                           id="bolum"
-                           name="bolum"
+                           id="department"
+                           name="department"
                            type="text">
                 </div>
                 <br/>
+
                 <div class="form-group">
                     <label for="name">Numara</label>
-
                     <input class="form-control"
-                           id="numara"
-                           name="numara"
-                           type="number">
+                           id="number"
+                           name="number"
+                           type="text">
 
                 </div>
                 <br/>
+
                 <input class="btn btn-default" type="submit" value="Ekle"/>
-                <a href="/ogrenciler"> <a href="/ogrenciler"><input class="btn btn-default" value="vazgeç"/></a></a>
+                <a href="/studentList"> <a href="/studentList"><input class="btn btn-default" value="vazgeç"/></a></a>
             </form>
         </table>
-
     </div>
 
     <footer class="footer">
-        <p>&copy; 2017 Ileri Java Medipol</p>
+        <p>&copy; Buğra Emin Bürüngüz</p>
     </footer>
-
 </div>
-
-
 </body>
 </html>
