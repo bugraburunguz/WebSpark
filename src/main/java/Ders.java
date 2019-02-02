@@ -8,7 +8,7 @@ public class Ders {
     public String dersAdi;
     public int dersKredi;
     public int dersAKTS;
-    public int dersId;
+    public String dersId;
     public List<Ogrenci> dersinOgrencileri;
 
     public Ders(String dersAdi, int dersKredi, int dersAKTS, int dersId) {
@@ -60,9 +60,6 @@ public class Ders {
         this.dersinOgrencileri = dersinOgrencileri;
     }
 
-    public String dersId() {
 
-        return String.valueOf(this.dersId);
-    }
 
 }
