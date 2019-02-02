@@ -11,7 +11,7 @@ public class Ders {
     public String dersId;
     public List<Ogrenci> dersinOgrencileri;
 
-    public Ders(String dersAdi, int dersKredi, int dersAKTS, int dersId) {
+    public Ders(String dersAdi, int dersKredi, int dersAKTS, String dersId) {
         this.dersAdi = dersAdi;
         this.dersKredi = dersKredi;
         this.dersAKTS = dersAKTS;
