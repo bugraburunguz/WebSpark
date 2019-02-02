@@ -23,18 +23,15 @@ public class SparkFtl {
 
         Logger logger = LoggerFactory.getLogger(SparkFtl.class);
         logger.info("Hello World");
-
+        setPort(4567);
 
         List<Ogrenci> ogrencilistesi = new ArrayList<Ogrenci>();
         List<Ders> derslistesi = new ArrayList<Ders>();
-
 
         ogrencilistesi.add(new Ogrenci("Ogrenci Bir", "Yüksek Lisans", "MYO", 1));
         ogrencilistesi.add(new Ogrenci("Ogrenci Iki", "On Lisans", "MYO", 2));
         ogrencilistesi.add(new Ogrenci("Ogrenci Uc", "On Lisans", "MYO", 3));
         derslistesi.add(new Ders("Bilişim Hukuku", 15, 12, 1235));
-
-        setPort(4567);
 
         FreeMarkerRoute ogrencilerGet = new FreeMarkerRoute("/ogrenciler") {
             public Object handle(Request req, Response resp) {
