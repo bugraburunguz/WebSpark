@@ -44,11 +44,8 @@ public class Ders {
         this.dersAKTS = dersAKTS;
     }
 
-    public int getDersId() {
-        return dersId;
-    }
 
-    public void setDersId(int dersId) {
+    public void setDersId(String dersId) {
         this.dersId = dersId;
     }
 
